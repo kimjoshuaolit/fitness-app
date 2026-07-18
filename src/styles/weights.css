@@ -1,0 +1,90 @@
+/* src/styles/weights.css
+   Design tokens for the fitness log. Import once (e.g. in main.tsx or App.tsx).
+   Aesthetic: dark slate ground, one signal-amber accent = "you", mono for data. */
+
+:root {
+  --ground:     #14171c;  /* page background */
+  --panel:      #1c2027;  /* cards */
+  --line:       #2c313a;  /* borders */
+  --line-faint: #23272f;  /* grid lines */
+  --ink:        #e7e9ee;  /* primary text */
+  --ink-dim:    #8b93a1;  /* secondary text, raw-weight line */
+  --accent:     #f5a524;  /* signal amber — the 7-day avg, the CTA */
+  --accent-ink: #14171c;  /* text on accent */
+  --danger:     #ef6461;
+
+  --mono: 'JetBrains Mono', 'Cascadia Code', ui-monospace, 'SF Mono', Menlo, monospace;
+}
+
+body {
+  background: var(--ground);
+  color: var(--ink);
+}
+
+/* ---- Weight form ---- */
+.wf {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 16px;
+}
+.wf__row {
+  display: flex;
+  gap: 12px;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+.wf__field { display: flex; flex-direction: column; gap: 6px; flex: 1 1 140px; }
+.wf__label {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+}
+.wf__input {
+  font-family: var(--mono);
+  font-size: 16px;               /* 16px stops iOS Safari zoom-on-focus */
+  color: var(--ink);
+  background: var(--ground);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 10px 12px;
+  width: 100%;
+}
+.wf__input:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+  border-color: transparent;
+}
+.wf__btn {
+  font-family: var(--mono);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accent-ink);
+  background: var(--accent);
+  border: none;
+  border-radius: 8px;
+  padding: 11px 18px;
+  cursor: pointer;
+  flex: 0 0 auto;
+  min-height: 44px;              /* comfortable phone tap target */
+}
+.wf__btn:disabled { opacity: 0.45; cursor: not-allowed; }
+.wf__error { color: var(--danger); font-size: 13px; margin: 10px 0 0; }
+
+/* ---- Chart ---- */
+.chart {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 16px 12px 8px;
+  margin-top: 16px;
+}
+.chart__msg {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--ink-dim);
+  padding: 40px 16px;
+  text-align: center;
+}
+.chart__msg--err { color: var(--danger); }
